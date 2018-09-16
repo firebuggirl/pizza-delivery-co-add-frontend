@@ -1,0 +1,132 @@
+<h1>Order Details</h1>
+<a class="backButton" href="/order/total">Back</a>
+<hr />
+
+<h2>Edit your order details</h2>
+
+
+<div class="formWrapper">
+  <form id="orderEdit1" action="/api/cart" method="PUT">
+  <input type="hidden" name="_method" value="PUT"/>
+  <div class="formError"></div>
+  <div class="formSuccess">Your Changes Have Been Saved</div>
+  <input class="hiddenIdInput"  type="hidden" name="uid" />
+
+  <div class="inputWrapper">
+    <div class="inputLabel">Check ID</div>
+    <input class="disabled displayIdInput" type="text" name="displayId" disabled />
+  </div>
+    <div class="formError"></div>
+    <div class="inputWrapper">
+      <!-- <div class="inputWrapper">
+        <div class="inputLabel">Email</div>
+        <input type="text" name="email" placeholder="test@test.com" />
+      </div> -->
+
+
+<!-- <div class="inputWrapper" id="checkBox1"> -->
+      <div class="inputLabel">Pizza Type</div>
+      <select id="name" class="pizzaInput" name="name">
+        <option id="thin-crust" value="default" disabled>Select Pizza Type</option>
+        <option id="thin-crust" value="thin-crust">Thin Crust</option>
+        <option id="medium-crust" value="medium-crust">Medium Crust</option>
+        <option id="deep-dish" value="deep-dish">Deep Dish</option>
+        <option id="vegan-pizza" value="vegan-pizza">Vegan Pizza</option>
+        <option id="paleo-crust-pizza" value="paleo-crust-pizza">Paleo Crust Pizza</option>
+      </select>
+    <!-- </div> -->
+      <div class="inputWrapper" id="checkBox1">
+        <div class="inputLabel">Select Toppings</div>
+        <div class="checkboxGroup">
+          <input type="checkbox" class="toppingsInput multiselect" name="toppings" value="pepperoni" >pepperoni
+          <input type="checkbox" class="toppingsInput multiselect" name="toppings" value="sausage" >sausage
+          <input type="checkbox" class="toppingsInput multiselect" name="toppings" value="peppers">peppers
+          <input type="checkbox" class="toppingsInput multiselect" name="toppings" value="olives">olives
+        </div>
+      </div>
+
+      <div class="inputWrapper" id="checkBox2">
+        <div class="inputLabel">Select Toppings</div>
+        <div class="checkboxGroup">
+          <input type="checkbox" class="toppingsInput multiselect " name="toppings" value="pepperoni">pepperoni
+          <input type="checkbox" class="toppingsInput multiselect " name="toppings" value="sausage">sausage
+          <input type="checkbox" class="toppingsInput multiselect " name="toppings" value="peppers">peppers
+          <input type="checkbox" class="toppingsInput multiselect " name="toppings" value="olives">olives
+        </div>
+      </div>
+
+       <div class="inputWrapper" id="checkBox3">
+        <div class="inputLabel">Select Toppings</div>
+        <div class="checkboxGroup">
+          <input type="checkbox" class="toppingsInput multiselect " name="toppings" value="pepperoni">pepperoni
+          <input type="checkbox" class="toppingsInput multiselect" name="toppings" value="sausage">sausage
+          <input type="checkbox" class="toppingsInput multiselect" name="toppings" value="peppers">peppers
+          <input type="checkbox" class="toppingsInput multiselect" name="toppings" value="olives">olives
+        </div>
+      </div>
+
+
+      <div class="inputWrapper" id="checkBox4">
+        <div class="inputLabel">Select Vegan Toppings</div>
+        <div class="checkboxGroup">
+          <input type="checkbox" class="toppingsInput multiselect " name="toppings" value="peppers">peppers
+          <input type="checkbox" class="toppingsInput multiselect " name="toppings" value="olives">olives
+          <input type="checkbox" class="toppingsInput multiselect " name="toppings" value="vegan-chorizo">vegan-chorizo
+          <input type="checkbox" class="toppingsInput multiselect " name="toppings" value="rice-cheese">rice-cheese
+          <input type="checkbox" class="toppingsInput multiselect " name="toppings" value="vegan-bacon">vegan-bacon
+          </div>
+      </div>
+
+
+      <div class="inputWrapper" id="checkBox5">
+        <div class="inputLabel">Select Paleo Toppings</div>
+        <div class="checkboxGroup">
+          <input type="checkbox" class="toppingsInput multiselect " name="toppings" value="peppers">peppers
+          <input type="checkbox" class="toppingsInput multiselect " name="toppings" value="olives">olives
+          <input type="checkbox" class="toppingsInput multiselect " name="toppings" value="grass-fed-beef">grass-fed-beef
+          <input type="checkbox" class="toppingsInput multiselect " name="toppings" value="bison-burger-bits">bison-burger-bits
+        </div>
+      </div>
+
+
+
+      <div id="hidden_div" style="display: none;">Hello hidden content</div>
+      <div class="inputLabel">Size</div>
+      <select name="sizeChoice" class="sizeChoiceInput">
+        <!-- <option value="[{'size':'small','price': 14}]">Small - $14</option>
+        <option value="[{'size':'medium','price': 16}]">Medium - $16</option>
+        <option value="[{'size':'large','price': 18}]">Large - $18</option>
+        <option value="[{'size':'x-large','price': 20}]">X-Large - $20</option> -->
+        <!-- <option value="14">Small - $14</option>
+        <option value="16">Medium - $16</option>
+        <option value="18">Large - $18</option>
+        <option value="20">X-Large - $20</option> -->
+        <optgroup label="Pizza size" class="sizeChoiceInput">
+          <option value="14">Small - $14</option>
+          <option value="16">Medium - $16</option>
+          <option value="18">Large - $18</option>
+          <option value="20">X-Large - $20</option>
+        </optgroup>
+     </select>
+    </div>
+
+<div class="inputWrapper ctaWrapper">
+      <button type="submit" class="cta tan">Save Changes</button>
+    </div>
+  </form>
+</div>
+
+
+<hr />
+<h2>Delete The Order</h2>
+<div class="formWrapper">
+  <form id="cartEdit2" action="/api/cart" method="DELETE">
+    <input type="hidden" name="_method" value="DELETE"/>
+    <div class="formError"></div>
+    <div class="warning">Warning: This action cannot be undone. Dont click this button on accident!</div>
+    <input class="hiddenIdInput" type="hidden" name="uid" />
+    <div class="inputWrapper ctaWrapper">
+      <button type="submit" class="cta red">Delete Order</button>
+    </div>
+  </form>
+</div>

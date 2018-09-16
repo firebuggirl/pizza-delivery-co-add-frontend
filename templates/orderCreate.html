@@ -1,0 +1,104 @@
+<h1>Place an Order</h1>
+
+<a class="backButton" href="/menu">Back</a>
+<hr />
+
+
+<div class="formWrapper">
+  <form id="cartCreate" action="/api/cart" method="POST">
+    <div class="formError"></div>
+    <div class="inputWrapper">
+<!-- <div class="inputWrapper" id="checkBox1"> -->
+      <div class="inputLabel">Pizza Type</div>
+      <select id="name" name="name">
+        <option id="thin-crust" value="default" disabled>Select Pizza Type</option>
+        <option id="thin-crust" value="thin-crust">Thin Crust</option>
+        <option id="medium-crust" value="medium-crust">Medium Crust</option>
+        <option id="deep-dish" value="deep-dish">Deep Dish</option>
+        <option id="vegan-pizza" value="vegan-pizza">Vegan Pizza</option>
+        <option id="paleo-crust-pizza" value="paleo-crust-pizza">Paleo Crust Pizza</option>
+      </select>
+    <!-- </div> -->
+      <div class="inputWrapper" id="checkBox1">
+        <div class="inputLabel">Select Toppings</div>
+        <div class="checkboxGroup">
+          <input type="checkbox" class="multiselect " name="toppings" value="pepperoni" >pepperoni
+          <input type="checkbox" class="multiselect " name="toppings" value="sausage" >sausage
+          <input type="checkbox" class="multiselect" name="toppings" value="peppers">peppers
+          <input type="checkbox" class="multiselect " name="toppings" value="olives">olives
+        </div>
+      </div>
+
+      <div class="inputWrapper" id="checkBox2">
+        <div class="inputLabel">Select Toppings</div>
+        <div class="checkboxGroup">
+          <input type="checkbox" class="multiselect " name="toppings" value="pepperoni">pepperoni
+          <input type="checkbox" class="multiselect " name="toppings" value="sausage">sausage
+          <input type="checkbox" class="multiselect " name="toppings" value="peppers">peppers
+          <input type="checkbox" class="multiselect " name="toppings" value="olives">olives
+        </div>
+      </div>
+
+       <div class="inputWrapper" id="checkBox3">
+        <div class="inputLabel">Select Toppings</div>
+        <div class="checkboxGroup">
+          <input type="checkbox" class="multiselect " name="toppings" value="pepperoni">pepperoni
+          <input type="checkbox" class="multiselect" name="toppings" value="sausage">sausage
+          <input type="checkbox" class="multiselect" name="toppings" value="peppers">peppers
+          <input type="checkbox" class="multiselect" name="toppings" value="olives">olives
+        </div>
+      </div>
+
+
+      <div class="inputWrapper" id="checkBox4">
+        <div class="inputLabel">Select Vegan Toppings</div>
+        <div class="checkboxGroup">
+          <input type="checkbox" class="multiselect " name="toppings" value="peppers">peppers
+          <input type="checkbox" class="multiselect " name="toppings" value="olives">olives
+          <input type="checkbox" class="multiselect " name="toppings" value="vegan-chorizo">vegan-chorizo
+          <input type="checkbox" class="multiselect " name="toppings" value="rice-cheese">rice-cheese
+          <input type="checkbox" class="multiselect " name="toppings" value="vegan-bacon">vegan-bacon
+          </div>
+      </div>
+
+
+      <div class="inputWrapper" id="checkBox5">
+        <div class="inputLabel">Select Paleo Toppings</div>
+        <div class="checkboxGroup">
+          <input type="checkbox" class="multiselect " name="toppings" value="peppers">peppers
+          <input type="checkbox" class="multiselect " name="toppings" value="olives">olives
+          <input type="checkbox" class="multiselect " name="toppings" value="grass-fed-beef">grass-fed-beef
+          <input type="checkbox" class="multiselect " name="toppings" value="bison-burger-bits">bison-burger-bits
+        </div>
+      </div>
+
+
+
+      <div id="hidden_div" style="display: none;">Hello hidden content</div>
+      <div class="inputLabel">Size</div>
+      <select class="sizeArray" name="sizeChoice">
+        <!-- <option value="[{'size':'small','price': 14}]">Small - $14</option>
+        <option value="[{'size':'medium','price': 16}]">Medium - $16</option>
+        <option value="[{'size':'large','price': 18}]">Large - $18</option>
+        <option value="[{'size':'x-large','price': 20}]">X-Large - $20</option> -->
+        <!-- <option value="14">Small - $14</option>
+        <option value="16">Medium - $16</option>
+        <option value="18">Large - $18</option>
+        <option value="20">X-Large - $20</option> -->
+        <optgroup label="Pizza size">
+          <option value="14">Small - $14</option>
+          <option value="16">Medium - $16</option>
+          <option value="18">Large - $18</option>
+          <option value="20">X-Large - $20</option>
+        </optgroup>
+
+
+     </select>
+    </div>
+
+
+    <div class="inputWrapper ctaWrapper">
+      <button type="submit" class="cta tan">Place Order</button>
+    </div>
+  </form>
+</div>
