@@ -37,3 +37,9 @@ This is an open-ended assignment. You can take any direction you'd like to go wi
 
 
   - ` node index.js ` or ` nodemon index.js `
+
+
+  - Set environment variables for Mailgun and Stripe
+
+
+      - see ` [a relative link](./security.md) `
