@@ -24,3 +24,16 @@ It is time to `build a simple frontend for the Pizza-Delivery API` you created i
 
 This is an open-ended assignment. You can take any direction you'd like to go with it, as long as your project includes the requirements. It can include anything else you wish as well.
 
+## NOTE:
+
+### To start app:
+
+  - ` cd https `
+
+  - run ` openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
+ `
+
+  - ` nvm use 8.9 `//if not Node defaults
+
+
+  - ` node index.js ` or ` nodemon index.js `
