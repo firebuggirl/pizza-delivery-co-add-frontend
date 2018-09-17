@@ -42,9 +42,6 @@ cartHandlers._cart  = {};
 // Content-type: application/json
 // Token: TOKEN_ID
 // EX: POST request:
-// {
-//   "userEmail" : "test2@test2.com",
-//   "order": [
 //     {
 //       "name": "thin-crust",
 //       "toppings": ["pepperoni", "peppers", "olives"],
@@ -52,166 +49,6 @@ cartHandlers._cart  = {};
 //                 { "_id": "large", "price": 18 }
 //                 ]
 //         }
-//   ]
-// }
-//
-// cartHandlers._cart.post = (data,callback) => {
-//
-//  let name = typeof(data.payload.name) == 'string' && data.payload.name.trim().length > 0 ? data.payload.name.trim() : false;
-//  let toppings = typeof(data.payload.toppings) == 'object' && data.payload.toppings instanceof Array && data.payload.toppings.length > 0 ? data.payload.toppings : false;
-//  let sizeChoice = typeof(data.payload.sizeChoice) == 'string' && data.payload.sizeChoice.length > 0 ? data.payload.sizeChoice : false;
-//  let totalBill = typeof(data.payload.totalBill) == 'string' && data.payload.totalBill.length > 0 ? data.payload.totalBill : false;
-//
-//
-//     // Get token from headers
-//     let token = typeof(data.headers.token) == 'string' ? data.headers.token : false;
-//
-//     // Lookup the user email by reading the token
-//     _data.read('tokens',token,(err,tokenData) => {
-//       if(!err && tokenData){
-//         const userEmail = tokenData.email;
-//
-//
-//
-//
-//
-//         // Lookup the user data
-//         _data.read('users',userEmail,(err,userData) => {
-//         //  if(!err && userData){
-//             // const userCartItems = typeof(userData.cartItems) == 'object' && userData.cartItems instanceof Array ? userData.cartItems : [];// add new item to user's order array or add to new (empty) Array if user does not already have any carts
-//             //
-//             //   helpers.sendStripeOrder(userData,cartObject,(err,response) => {
-//             //     if(!err){
-//             //       //helpers.sendReceiptEmail(userData,cartData,(err,emailRes) => {
-//             //       let orderData = {
-//             //                         'cart' : cartObject,
-//             //                         'user' : userData,
-//             //                         'date' : Date.now()
-//             //                     }
-//             //       var uuString = helpers.createRandomString(10);
-//             //       _data.create('orders',uuString,orderData,(err,order) => {
-//             //         if(!err){
-//             //
-//             //             callback(200);
-//             //         } else{
-//             //               callback(500);
-//             //         }
-//             //     });
-//             //       //});
-//             //     }
-//             //
-//
-//
-//           //});
-//
-//
-//
-//             // Verify that user has less than the number of max-cart per user
-//             //if(userCartItems.length < 0){
-//             if(userCartItems.length < config.maxCartItems){
-//               // Create random id for cart
-//               const cartId = helpers.createRandomString(20);
-//
-//
-//               // Create cart object including useremail
-//               function calculateBillTotal(preTaxAndTipAmount) {
-//                 const tax = preTaxAndTipAmount * 0.0725;
-//                 return preTaxAndTipAmount + tax ;
-//               }
-//               console.log(calculateBillTotal(parseInt(Math.round(sizeChoice * 100) / 100)));//bill before rounding tp 2nd decimal point
-//
-//               //const totalBill = calculateBillTotal(parseInt(pizzaPrice));
-//               const unroundedBill = calculateBillTotal(parseInt(Math.round(sizeChoice * 100) / 100));
-//
-//               const totalBill =  Math.ceil(unroundedBill * 100)/100;
-//
-//               console.log(totalBill);
-//
-//               let cartObject = {
-//                 'id': cartId,
-//                 'userEmail' : userEmail,
-//                 'name': name,
-//                 'toppings': toppings,
-//                 'sizeChoice': sizeChoice,
-//                 'totalBill': totalBill
-//               };
-// //
-// // helpers.sendStripeOrder(totalBill, err => {
-// //   if (!err) {
-// //     //userData.cartItems = [];
-// //     const userReceipt = typeof(userData.receipt) == 'object' && userData.receipt instanceof Array ? userData.receipt : [];
-// //     userData.receipt = [];
-// //
-// //           userData.receipt = userReceipt;
-// //           userData.receipt.push(totalBill);
-// //
-// //             _data.update('users',userEmail,userData,(err) => {
-// //
-// //               if(!err){
-// //                   callback(200,userData);
-// //               }
-// //               else {
-// //                 callback(500,{'Error' : 'Could not update the user with the bill total.'});
-// //               }
-// //             });
-// //
-// //   }//end if (!err)
-// // });//end helpers.sendStripeOrder
-//
-//
-//
-//               // Save the object..persist data to disk..stored in `cart` collection
-//               _data.create('cart', cartId, cartObject, (err) => {
-//                 if(!err){
-//                   // Add cart id to the user's object
-//                   userData.cartItems = userCartItems;
-//                   userData.cartItems.push(cartId);
-//                   //userData.cartItems.push(totalBill);
-//
-//
-//
-//
-//
-//                   // Save the new user data
-//                   _data.update('users',userEmail,userData,(err) => {
-//                     if(!err){
-//                       // Return the data about the new cartObject in the cart document/directory
-//                       callback(200,cartObject);//error...can't set headers after tehy are sent
-//
-//                       //const amount = '$29';
-//                     //  const amount = totalBill;
-//
-//                     //  helpers.sendStripeOrder( amount, callback);
-//                     } else {
-//                       callback(500,{'Error' : 'Could not update the user with the new order info.'});
-//                     }
-//                   });
-//                 } else {
-//                   callback(500,{'Error' : 'Could not create the new order'});
-//                 }
-//               });
-//
-//
-//
-//             }
-//             else {
-//               callback(400,{'Error' : 'The user does not have any cart items.'});
-//             }
-//
-//
-//           } else {
-//             callback(403);
-//           }
-//         });
-//
-//
-//       } else {
-//         callback(403);
-//       }
-//     });
-//
-//
-// };
 
 
 cartHandlers._cart.post = (data,callback) => {
@@ -310,82 +147,6 @@ cartHandlers._cart.post = (data,callback) => {
     });
 
 };
-//
-// cartHandlers._cart.post = (data,callback) => {
-//
-//    let name = typeof(data.payload.name) == 'string' && data.payload.name.trim().length > 0 ? data.payload.name.trim() : false;
-//    let toppings = typeof(data.payload.toppings) == 'object' && data.payload.toppings instanceof Array && data.payload.toppings.length > 0 ? data.payload.toppings : false;
-//    let sizeChoice = typeof(data.payload.sizeChoice) == 'string' && data.payload.sizeChoice.length > 0 ? data.payload.sizeChoice : false;
-//    let totalBill = typeof(data.payload.totalBill) == 'string' && data.payload.totalBill.length > 0 ? data.payload.totalBill : false;
-//
-//    // Get token from headers
-//    let token = typeof(data.headers.token) == 'string' ? data.headers.token : false;
-//
-//      _data.read('tokens',token,(err,tokenData) => {
-//        if(!err && tokenData){
-//          const userEmail = tokenData.email;
-//          _data.read('users',userEmail,(err,userData) => {
-//            if(!err && userData){
-//              const userCartItems = typeof(userData.cartItems) == 'object' && userData.cartItems instanceof Array ? userData.cartItems : [];// add new item to user's order array or add to new (empty) Array if user does not already have any carts
-//              if(userCartItems.length > 0){
-//                // Create random id for cart
-//               const cartId = helpers.createRandomString(20);
-//               // Create cart object including useremail
-//               function calculateBillTotal(preTaxAndTipAmount) {
-//                 const tax = preTaxAndTipAmount * 0.0725;
-//                 return preTaxAndTipAmount + tax ;
-//               }
-//               console.log(calculateBillTotal(parseInt(Math.round(sizeChoice * 100) / 100)));//bill before rounding tp 2nd decimal point
-//
-//               //const totalBill = calculateBillTotal(parseInt(pizzaPrice));
-//               const unroundedBill = calculateBillTotal(parseInt(Math.round(sizeChoice * 100) / 100));
-//
-//               const totalBill =  Math.ceil(unroundedBill * 100)/100;
-//
-//               console.log(totalBill);
-//
-//               let cartObject = {
-//                 'id': cartId,
-//                 'userEmail' : userEmail,
-//                 'name': name,
-//                 'toppings': toppings,
-//                 'sizeChoice': sizeChoice,
-//                 'totalBill': totalBill
-//               };
-//
-//
-//
-//               helpers.sendStripeOrder(totalBill, err => {
-//                 if (!err) {
-//                   userData.cartItems = [];
-//                     _data.create('cart', cartId, cartObject, (err) => {
-//                       if(!err){
-//
-//                         // Add cart id to the user's object
-//                         userData.cartItems = userCartItems;
-//                         userData.cartItems.push(cartId);
-//
-//                           _data.update('users',userEmail,userData,(err) => {
-//
-//                             if(!err){
-//                                 callback(200,cartObject);
-//                             }
-//                             else {
-//                               callback(500,{'Error' : 'Could not update the user with the new order info.'});
-//                             }
-//                           });
-//                       }
-//                     });
-//                 }//end if (!err)
-//               });//end helpers.sendStripeOrder
-//
-//              }//end if(userCartItems.length > 0)
-//            }//end if(!err && userData)
-//          });//end _data.read('users
-//        };//end if(!err && tokenData)
-//      });//end _data.read
-// }//end cartHandlers._cart.post
-
 
 
 // cart - get
@@ -527,7 +288,7 @@ cartHandlers._cart.delete = (data,callback) => {
   // Check that id is valid
     const id = typeof(data.queryStringObject.id) == 'string' && data.queryStringObject.id.trim().length == 20 ? data.queryStringObject.id.trim() : false;
     if(id){
-      // Lookup the check
+      // Lookup the cart data
       _data.read('cart',id,(err,cartData) => {
         if(!err && cartData){
           // Get the token that sent the request
@@ -536,15 +297,15 @@ cartHandlers._cart.delete = (data,callback) => {
           tokenHandlers._tokens.verifyToken(token,cartData.userEmail,(tokenIsValid) => {
             if(tokenIsValid){
 
-              // Delete the check data
+              // Delete the cart data
               _data.delete('cart',id,(err) => {
                 if(!err){
-                  // Lookup the user's object to get all their checks
+                  // Lookup the user's object to get all cart data
                   _data.read('users',cartData.userEmail,(err,userData) => {
                     if(!err){
                       const userCartItems = typeof(userData.cartItems) == 'object' && userData.cartItems instanceof Array ? userData.cartItems : [];
 
-                      // Remove the deleted check from their list of checks
+                      // Remove the deleted cart data
                       const cartPosition = userCartItems.indexOf(id);
                       if(cartPosition > -1){
                         userCartItems.splice(cartPosition,1);
@@ -573,7 +334,7 @@ cartHandlers._cart.delete = (data,callback) => {
             }
           });
         } else {
-          callback(400,{"Error" : "The check ID specified could not be found"});
+          callback(400,{"Error" : "The cart ID specified could not be found"});
         }
       });
     } else {

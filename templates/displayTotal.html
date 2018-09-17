@@ -6,16 +6,12 @@
 
 <table id="orderListTable">
   <thead>
-    <!-- <th>ID</th>
-    <th> Customer Email</th> -->
     <th>Pizza Type</th>
     <th>Toppings</th>
     <th>Size</th>
     <th>Total</th>
     <th>Details</th>
-
-
-  </thead>
+ </thead>
 
   <tr id="noOrderMessage">
     <td colspan="5">You have no order, please place one!</td>
@@ -29,6 +25,7 @@
   <a class="cta green" href="order/create">Place an Order</a>
 </div>
 
+<h1>Checkout</h1>
 
     <div class="formWrapper">
         <div class="formWrapper">
@@ -54,7 +51,7 @@
                 </div>
                 <div class="inputWrapper">
                     <div class="inputLabel">Total</div>
-                    <input class="displayTotalInput" type="text" name="totalBill" required/>
+                    <input class="disabled displayTotalInput" type="text" name="totalBill" disabled/>
                 </div>
                 <div class="inputWrapper">
                     <div class="inputLabel">Credit Card</div>
