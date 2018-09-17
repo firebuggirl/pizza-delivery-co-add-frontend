@@ -33,7 +33,7 @@ This is an open-ended assignment. You can take any direction you'd like to go wi
   - run ` openssl req -newkey rsa:2048 -new -nodes -x509 -days 3650 -keyout key.pem -out cert.pem
  `
 
-  - ` nvm use 8.9 `//if not Node defaults
+  - ` nvm use 8.9 `//if not Node default
 
 
   - ` node index.js ` or ` nodemon index.js `
