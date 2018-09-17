@@ -42,4 +42,4 @@ This is an open-ended assignment. You can take any direction you'd like to go wi
   - Set environment variables for Mailgun and Stripe
 
 
-      - see ` [a relative link](./security.md) `
+      - see `./notes-from-hmwork2-api/security.md`
