@@ -452,3 +452,9 @@ td a, td a:hover, td a:active{
   margin-top: 40px;
   display: none;
 }
+
+
+#thankYou{
+	background-color: #811616b3;
+	margin-top: 20%;
+}
