@@ -38,6 +38,12 @@ This is an open-ended assignment. You can take any direction you'd like to go wi
 
   - ` node index.js ` or ` nodemon index.js `
 
+### Create images & start with Docker:
+
+  - ` docker-compose up
+
+  - ` http://localhost:7777/ `
+
 
   - Set environment variables for Mailgun and Stripe
 

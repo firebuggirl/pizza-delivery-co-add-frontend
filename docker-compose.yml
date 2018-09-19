@@ -1,0 +1,36 @@
+# Run docker-compose build
+# Run docker-compose up
+# Live long and prosper
+
+version: '3'
+
+services:
+
+  node:
+    container_name: pizzadeliveryco
+    image: pizzadeliveryco
+    build:
+      context: .
+      dockerfile: .docker/node.development.dockerfile
+    volumes:
+      - .:/var/www/pizzadeliverycomongo
+    environment:
+      - NODE_ENV=development
+    ports:
+      - "7777:7777"
+    depends_on:
+      - mongodb
+    networks:
+      - nodeapp-network
+
+  #No authentication is provided here - just a demo! Read/search
+  #for more information about adding authentication. Also, container names need to be unique
+  mongodb:
+    container_name: mongodpizzadelivery
+    image: mongo
+    networks:
+      - nodeapp-network
+
+networks:
+  nodeapp-network:
+    driver: bridge
