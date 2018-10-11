@@ -1,4 +1,4 @@
-# Homework Assignment #3
+# Node.js Master Class Homework Assignment #3
 
 This is the third of several homework assignments you'll receive in this course. In order to receive your certificate of completion (at the end of this course) you must complete all the assignments and receive a passing grade.
 
